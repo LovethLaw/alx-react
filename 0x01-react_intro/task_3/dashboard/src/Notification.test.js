@@ -10,5 +10,4 @@ describe("<Notifications/> {Enzyme}", () => {
 
 	const wrapper = shallow(<Notifications />);
 	expect(wrapper.children()).toHaveLength(3);
-	expect(wrapper.)
 })

@@ -15,8 +15,11 @@
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
-		"eject": "react-scripts eject"
+		"eject": "react-scripts eject",
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d build"
 	},
+	"homepage": "https://github.com/LovethLaw/alx-react/tree/main/0x01-react_intro/task_3/dashboard",
 	"eslintConfig": {
 		"extends": [
 			"react-app",
@@ -37,6 +40,7 @@
 	},
 	"devDependencies": {
 		"enzyme": "^3.11.0",
-		"enzyme-adapter-react-16": "^1.15.8"
+		"enzyme-adapter-react-16": "^1.15.8",
+		"gh-pages": "^6.1.1"
 	}
 }

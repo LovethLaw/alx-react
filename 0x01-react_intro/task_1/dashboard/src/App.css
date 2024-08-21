@@ -1,0 +1,30 @@
+.App {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+
+}
+
+.App-header {
+	display: flex;
+	align-items: center;
+	color: red;
+	flex-grow: 1;
+}
+
+.App-header img {
+	width: 130px;
+}
+
+.App-body {
+	border-top: 2px solid red;
+	border-bottom: 2px solid red;
+	padding: 50px;
+	flex-grow: 4;
+}
+
+.App-footer {
+	flex-grow: 0;
+	padding: 8px;
+	text-align: center;
+}
