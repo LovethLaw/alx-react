@@ -28,6 +28,7 @@
 		"webpack-dev-server": "^4.6.0"
 	},
 	"dependencies": {
-		"@babel/runtime": "^7.16.7"
+		"@babel/runtime": "^7.16.7",
+		"proptypes": "^1.1.0"
 	}
 }

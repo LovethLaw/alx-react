@@ -1,27 +1,26 @@
 import React from 'react';
-import App from './App';
 import { shallow } from 'enzyme';
+import App from './App';
 
-describe('App tests', () => {
-	it('renders without crashing', () => {
-		const component = shallow(<App />);
+describe('<App />', () => {
+	let wrapper;
+	let mockLogOut;
 
-		expect(component).toBeDefined();
+	beforeEach(() => {
+		mockLogOut = jest.fn();
+		wrapper = shallow(<App logOut={mockLogOut} />);
+		window.alert = jest.fn();
 	});
 
-	// it('should render a div with the class App-header', () => {
-	// 	const component = shallow(<App />);
+	afterEach(() => {
+		jest.clearAllMocks();
+	});
 
-	// 	expect(component.find('.App-header')).toBeDefined();
-	// });
-	// it('should render a div with the class App-body', () => {
-	// 	const component = shallow(<App />);
+	it('should call logOut and display alert when Ctrl+h is pressed', () => {
+		const event = new KeyboardEvent('keydown', { ctrlKey: true, key: 'h' });
+		window.dispatchEvent(event);
 
-	// 	expect(component.find('.App-body')).toBeDefined();
-	// });
-	// it('should render a div with the class App-footer', () => {
-	// 	const component = shallow(<App />);
-
-	// 	expect(component.find('.App-footer')).toBeDefined();
-	// });
+		expect(window.alert).toHaveBeenCalledWith('Logging you out');
+		expect(mockLogOut).toHaveBeenCalled();
+	});
 });

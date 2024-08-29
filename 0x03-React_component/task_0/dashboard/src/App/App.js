@@ -4,11 +4,29 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Login from '../Login/Login';
 import Notifications from "../Notifications/Notifications";
-
+import PropTypes from 'prop-types';
 
 class App extends React.Component {
+	constructor(props) {
+		super(props);
+		this.handleKeydown = this.handleKeydown.bind(this);
+	}
 
+	componentDidMount() {
+		window.addEventListener("keydown", this.handleKeydown)
+	}
 
+	componentWillUnmount() {
+		window.removeEventListener("keydown", this.handleKeydown)
+	}
+
+	handleKeydown(event) {
+		const { logOut } = this.props;
+		if (event.ctrlKey && event.key === 'h') {
+			alert('Logging you out');
+			logOut();
+		}
+	}
 
 	render() {
 		return (
@@ -26,5 +44,15 @@ class App extends React.Component {
 	}
 
 }
+
+
+App.propTypes = {
+	logOut: PropTypes.func,
+};
+
+App.defaultProps = {
+	logOut: () => { },
+};
+
 
 export default App;
